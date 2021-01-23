@@ -1,21 +1,25 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.3
 import PackageDescription
 
 let package = Package(
     name: "JLRoutes",
-    platforms: [.iOS(.v8)],
+    platforms: [
+        .macOS(.v10_10),
+        .iOS(.v9),
+        .tvOS(.v9),
+    ],
     products: [
         .library(
             name: "JLRoutes",
-            targets: ["JLRoutes"]),
+            targets: ["JLRoutes"]
+        ),
     ],
     targets: [
         .target(
             name: "JLRoutes",
             path: "JLRoutes",
-            cSettings: [
-                .headerSearchPath("."),
-                .headerSearchPath("Classes"),
-            ]),
-    ]
+            publicHeadersPath: "."
+        ),
+    ],
+    swiftLanguageVersions: [.v5]
 )
